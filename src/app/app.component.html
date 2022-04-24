@@ -1,1 +1,14 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <span (click)="this.router.navigate(['main']);">{{title}}</span>
+        <span class="toolbar-spacer"></span>
+        <span *ngIf="!this.global.login" (click)="this.router.navigate(['login']);">Login</span>
+        <div *ngIf="this.global.login">
+          <span (click)="this.router.navigate(['profile']);">Profile</span>
+          <span class="toolbar-little-spacer"></span>
+          <span (click)="logout()">Logout</span>
+        </div>
+      </mat-toolbar-row>
+</mat-toolbar>
+
 <router-outlet></router-outlet>

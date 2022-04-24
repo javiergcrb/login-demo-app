@@ -10,15 +10,22 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 
-// GENERICOS DE MATERIAL:
+// SPECIFIC UI ELEMENTS
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
+// GENERIC MATERIAL
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    MatFormFieldModule,
+    MatButtonModule,MatInputModule,
+    MatFormFieldModule,MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,18 @@
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  width: 7%;
+  padding: 10vh;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+body{
+  height: 92.9vh;
+  background-image: url("../../assets/RedBullRingCars.jpg");
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position: center center;
+}

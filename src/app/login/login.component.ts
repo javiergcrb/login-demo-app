@@ -9,11 +9,15 @@ import { GlobalService } from '../services/global/global.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router : Router, private route : ActivatedRoute,
+  constructor(public router : Router, private route : ActivatedRoute,
     public global : GlobalService) { }
 
   ngOnInit(): void {
     //this.router.navigate(['profile'])
   }
 
+  login(){
+    this.global.login = true;
+    this.router.navigate(['main']);
+  }
 }

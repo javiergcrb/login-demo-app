@@ -1,9 +1,15 @@
-Login!!
-<mat-form-field appearance="fill">
-    <mat-label>User name</mat-label>
-    <input matInput>
-</mat-form-field>
-<mat-form-field appearance="fill">
-    <mat-label>User name</mat-label>
-    <input matInput type="password">
-</mat-form-field>
+<body>
+    <div class="login-form">
+        <mat-form-field appearance="fill">
+            <mat-label>User name</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
+        <button mat-button color="primary" (click)="this.router.navigate(['register']);">Register</button>
+    </div>
+</body>

@@ -9,19 +9,24 @@ import { FirestoreService } from './services/firestore/firestore.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'login-demo-app';
+  title = 'Red Bull Ring';
 
-  constructor(private router: Router, private route: ActivatedRoute,
+  constructor(public router: Router, private route: ActivatedRoute,
     public global: GlobalService, public firestore: FirestoreService){
   }
 
   ngOnInit(){
     this.router.navigate(['']);
-    if(!this.global.login){
+    /*if(!this.global.login){
       this.router.navigate(['login']);
     }
     else{
       this.router.navigate(['profile']);
-    }
+    }*/
+  }
+
+  logout(){
+    this.global.login = false;
+    this.router.navigate(['main']);
   }
 }
