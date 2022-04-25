@@ -2,11 +2,11 @@
     <mat-toolbar-row>
         <span (click)="this.router.navigate(['main']);">{{title}}</span>
         <span class="toolbar-spacer"></span>
-        <span *ngIf="!this.global.login" (click)="this.router.navigate(['login']);">Login</span>
-        <div *ngIf="this.global.login">
+        <span *ngIf="!this.global.getLogin()" (click)="this.router.navigate(['login']);">Login</span>
+        <div *ngIf="this.global.getLogin()">
           <span (click)="this.router.navigate(['profile']);">Profile</span>
           <span class="toolbar-little-spacer"></span>
-          <span (click)="logout()">Logout</span>
+          <span (click)="this.global.do_logout()">Log out</span>
         </div>
       </mat-toolbar-row>
 </mat-toolbar>

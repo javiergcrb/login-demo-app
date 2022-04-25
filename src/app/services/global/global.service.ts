@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/user';
 
 @Injectable({
@@ -6,15 +7,30 @@ import { User } from 'src/app/user';
 })
 export class GlobalService {
 
-  public login:boolean;
-  public usr:User;
+  private login:boolean;
+  private usr:User;
 
-  constructor() {
+  constructor(private router: Router) {
     this.login = false;
     this.usr = new User();
-    this.usr.id = '';
-    this.usr.firstName = '';
-    this.usr.email = '';
-    this.usr.country = '';
    }
+
+  getLogin(){
+    return this.login;
+  }
+
+  getUser(){
+    return this.usr;
+  }
+
+  do_login(user:User){
+    this.login = true;
+    this.usr = user;
+  }
+
+  do_logout(){
+    this.login = false;
+    this.usr = new User();
+    this.router.navigate(['login']);
+  }
 }

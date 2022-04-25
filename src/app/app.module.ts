@@ -18,6 +18,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 // GENERIC MATERIAL
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MainComponent } from './main/main.component';
+import {FormsModule} from '@angular/forms';
+
+// FIRESTORE
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,11 @@ import { MainComponent } from './main/main.component';
       registrationStrategy: 'registerWhenStable:30000'
     }),
     MatButtonModule,MatInputModule,
-    MatFormFieldModule,MatToolbarModule
+    MatFormFieldModule,MatToolbarModule,
+    FormsModule,
+
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]

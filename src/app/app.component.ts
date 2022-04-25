@@ -16,17 +16,15 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.router.navigate(['']);
-    /*if(!this.global.login){
+    if(!this.global.getLogin()){
       this.router.navigate(['login']);
     }
     else{
-      this.router.navigate(['profile']);
-    }*/
+      this.router.navigate(['main']);
+    }
   }
 
   logout(){
-    this.global.login = false;
-    this.router.navigate(['main']);
+    this.global.do_logout();
   }
 }

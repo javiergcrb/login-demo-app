@@ -1,0 +1,18 @@
+.register-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10vh;
+    width: 20%;
+    padding: 10vh;
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+body {
+    height: 92.9vh;
+    background-image: url("../../assets/RedBullRingBull.jpg");
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+  }
