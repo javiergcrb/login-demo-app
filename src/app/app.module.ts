@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UserCreationConfirmationComponent } from './user-creation-confirmation/user-creation-confirmation.component';
 
 // SPECIFIC UI ELEMENTS
 import {MatButtonModule} from '@angular/material/button';
@@ -24,7 +25,6 @@ import {FormsModule} from '@angular/forms';
 // FIRESTORE
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { UserCreationConfirmationComponent } from './user-creation-confirmation/user-creation-confirmation.component';
 
 @NgModule({
   declarations: [
