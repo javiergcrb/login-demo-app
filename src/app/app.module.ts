@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 // GENERIC MATERIAL
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -21,8 +22,9 @@ import { MainComponent } from './main/main.component';
 import {FormsModule} from '@angular/forms';
 
 // FIRESTORE
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { UserCreationConfirmationComponent } from './user-creation-confirmation/user-creation-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    MainComponent
+    MainComponent,
+    UserCreationConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -42,12 +45,12 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    MatButtonModule,MatInputModule,
+    MatButtonModule,MatDialogModule, MatInputModule,
     MatFormFieldModule,MatToolbarModule,
     FormsModule,
 
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

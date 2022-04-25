@@ -9,6 +9,16 @@
     background: rgba(255, 255, 255, 0.8);
   }
 
+.update-error-warn {
+    margin-bottom: 1vh;
+    color: red;
+  }
+
+.successful-update-warn {
+    margin-bottom: 1vh;
+    color: green;
+  }
+
 body {
     height: 92.9vh;
     background-image: url("../../assets/RedBullRingBull.jpg");

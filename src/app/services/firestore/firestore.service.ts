@@ -1,26 +1,35 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/user';
+import { GlobalService } from '../global/global.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
 
-  private fsUsuario:AngularFirestoreCollection<Usuario>;
+  fsUser: AngularFirestoreCollection<User>;
 
-  constructor(private firestore: AngularFirestore, public global: GlobalService) {
-    this.fsUsuario=this.firestore.collection('users');
+  constructor(private firestore:AngularFirestore) {
+    this.fsUser=this.firestore.collection('users');
    }
 
   //login
-  public login(usuario:string):Observable<Usuario[]>
+  public login(email:string, pass:string):Observable<User[]>
   {
-    return this.firestore.collection<Usuario>('users',ref=>ref.where('nombre','==',usuario)).valueChanges();
+    return this.firestore.collection<User>('users',ref=>ref.where('email','==',email).where('password','==',pass)).valueChanges();
   }
 
-  public create_user(){
-    this.global.usr.id = this.firestore.createId();
-    this.fsUsuario.doc(this.global.usr.id).set({... this.global.usr}).then(r =>{
-       return this.global.usr.id;
+  public update_user(user:User){
+    return this.fsUser.doc(user.id).set(user);
+  }
+
+  public create_user(user:User){
+    let to_store = user;
+    to_store.id = this.firestore.createId();
+    this.fsUser.doc(to_store.id).set({... to_store}).then(r =>{
+       return to_store.id;
       });
   }
 
